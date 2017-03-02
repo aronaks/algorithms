@@ -9,8 +9,6 @@ def sort_in_non_decreasing_mode(keys):
         keys[i+1] = key
     return keys
 
-print sort_in_non_decreasing_mode([1, 3, 5, 6, 7, 8, 1, 32, 2])
-
 
 def sort_in_non_increasing_mode(keys):
     keys_length = len(keys)
@@ -22,5 +20,3 @@ def sort_in_non_increasing_mode(keys):
             i -= 1
         keys[i+1] = key
     return keys
-
-print sort_in_non_increasing_mode([1, 3, 5, 6, 7, 8, 1, 32, 2])
