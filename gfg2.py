@@ -19,4 +19,3 @@ def count_combinations(keys, keys_length):
     if keys[-1] != keys[-2]:
         count *= 2
     return count
-
