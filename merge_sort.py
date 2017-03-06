@@ -21,4 +21,3 @@ def merge_sort(keys, leftmost_index, rightmost_index):
     merge_sort(keys, leftmost_index, middle_index)
     merge_sort(keys, middle_index, rightmost_index)
     merge(keys, leftmost_index, middle_index, rightmost_index)
-
