@@ -1,10 +1,12 @@
 class Element(object):
+
     def __init__(self, key):
         self.key = key
         self.next_element = None
 
 
 class LinkedList(object):
+
     def __init__(self, key=None):
         self.head = Element(key)
 
@@ -22,4 +24,10 @@ class LinkedList(object):
     def delete(self, x):
         element = self.search(x)
         if element:
-            self.head = element.next_element
+            new_next_element = element.next_element
+            if new_next_element:
+                element.key = new_next_element.key
+                element.next_element = new_next_element.next_element
+            else:
+                element.key = element.next_element
+                element.next_element = None
