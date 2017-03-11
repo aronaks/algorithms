@@ -6,5 +6,3 @@ def find_leaders(keys, keys_length):
             leader = keys[i]
             all_leaders.append(leader)
     return all_leaders
-
-
