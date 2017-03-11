@@ -1,12 +1,10 @@
 class Element(object):
-
     def __init__(self, key):
         self.key = key
         self.next_element = None
 
 
 class LinkedList(object):
-
     def __init__(self, key=None):
         self.head = Element(key)
 
