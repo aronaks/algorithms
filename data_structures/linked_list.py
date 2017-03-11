@@ -7,8 +7,8 @@ class Element(object):
 
 class LinkedList(object):
 
-    def __init__(self, key=None):
-        self.head = Element(key)
+    def __init__(self, head=None):
+        self.head = head
 
     def search(self, k):
         x = self.head
@@ -16,7 +16,7 @@ class LinkedList(object):
             x = x.next_element
         return x
 
-    def insert(self, x):
+    def insert_before(self, x):
         new_element = Element(x)
         new_element.next_element = self.head
         self.head = new_element
@@ -28,6 +28,5 @@ class LinkedList(object):
             if new_next_element:
                 element.key = new_next_element.key
                 element.next_element = new_next_element.next_element
-            else:
-                element.key = element.next_element
-                element.next_element = None
+        else:
+            raise ValueError('Element is not present in the list, thus can not be removed')
