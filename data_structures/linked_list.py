@@ -9,14 +9,10 @@ class LinkedList(object):
 
     def __init__(self, head=None):
         self.head = head
+        self.size = 1 if head else 0
 
     def __len__(self):
-        x = self.head
-        counter = 0
-        while x:
-            x = x.next_element
-            counter += 1
-        return counter
+        return self.size
 
     def search(self, k):
         x = self.head
@@ -28,6 +24,7 @@ class LinkedList(object):
         new_element = Element(x)
         new_element.next_element = self.head
         self.head = new_element
+        self.size += 1
 
     def delete(self, x):
         element = self.search(x)
@@ -36,5 +33,6 @@ class LinkedList(object):
             if new_next_element:
                 element.key = new_next_element.key
                 element.next_element = new_next_element.next_element
+            self.size -= 1
         else:
             raise ValueError('Element is not present in the list, thus can not be removed')
