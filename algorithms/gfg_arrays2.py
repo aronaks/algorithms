@@ -1,6 +1,6 @@
 def find_leaders(keys, keys_length):
     all_leaders = []
-    leader = None
+    leader = 0
     for i in range(keys_length-1, -1, -1):
         if keys[i] > leader:
             leader = keys[i]
