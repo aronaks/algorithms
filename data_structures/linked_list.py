@@ -10,6 +10,14 @@ class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
 
+    def __len__(self):
+        x = self.head
+        counter = 0
+        while x:
+            x = x.next_element
+            counter += 1
+        return counter
+
     def search(self, k):
         x = self.head
         while x and x.key != k:
