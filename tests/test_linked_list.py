@@ -8,11 +8,13 @@ class TesLinkedList(unittest.TestCase):
     def test_create_empty_linked_list(self):
         my_list = LinkedList()
         self.assertIsNone(my_list.head)
+        self.assertFalse(len(my_list))
 
     def test_create_linked_list_with_head_only(self):
         head = Element(2)
         my_list = LinkedList(head)
         self.assertEqual(my_list.head, head)
+        self.assertEqual(len(my_list), 1)
 
     def test_insert_element_before(self):
         my_list = LinkedList()
