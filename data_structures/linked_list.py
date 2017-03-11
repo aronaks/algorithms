@@ -33,6 +33,9 @@ class LinkedList(object):
             if new_next_element:
                 element.key = new_next_element.key
                 element.next_element = new_next_element.next_element
+            else:
+                element.key = element.next_element
+                element.next_element = None
             self.size -= 1
         else:
             raise ValueError('Element is not present in the list, thus can not be removed')

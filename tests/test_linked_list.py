@@ -44,8 +44,9 @@ class TesLinkedList(unittest.TestCase):
         list_length = 5
         for i in range(list_length):
             my_list.insert_before(i)
-        my_list.delete(3)
-        self.assertIsNone(my_list.search(3))
+        middle_element = 3
+        my_list.delete(middle_element)
+        self.assertIsNone(my_list.search(middle_element))
         self.assertEqual(len(my_list), list_length - 1)
 
     def test_delete_head(self):
@@ -53,10 +54,22 @@ class TesLinkedList(unittest.TestCase):
         list_length = 5
         for i in range(list_length):
             my_list.insert_before(i)
-        my_list.delete(4)
-        self.assertIsNone(my_list.search(4))
+        head = 4
+        my_list.delete(head)
+        self.assertIsNone(my_list.search(head))
         self.assertEqual(my_list.head.key, 3)
         self.assertEqual(my_list.head.next_element.key, 2)
+        self.assertEqual(len(my_list), list_length - 1)
+
+    def test_delete_last_element(self):
+        my_list = LinkedList()
+        list_length = 5
+        for i in range(list_length):
+            my_list.insert_before(i)
+        last_element = 0
+        my_list.delete(last_element)
+        self.assertIsNone(my_list.search(last_element))
+        self.assertIsNone(my_list.search(1).next_element.key)
         self.assertEqual(len(my_list), list_length - 1)
 
     def test_delete_element_absent(self):
