@@ -1,18 +1,18 @@
 import pytest
 
-from data_structures.linked_list import Element, LinkedList
+from data_structures.linked_list import LinkedList
 
 
 def test_create_empty_linked_list():
     my_list = LinkedList()
-    assert my_list.head is None
+    assert my_list.head.key is None
     assert not len(my_list)
 
 
 def test_create_linked_list_with_head_only():
-    head = Element(2)
+    head = 2
     my_list = LinkedList(head)
-    assert my_list.head == head
+    assert my_list.head.key == head
     assert len(my_list) == 1
 
 
@@ -21,7 +21,7 @@ def test_insert_element_before():
     first_element = 0
     my_list.insert_before(first_element)
     assert my_list.head.key == first_element
-    assert my_list.head.next_element is None
+    assert my_list.head.next_element.key is None
     for i in range(1, 5):
         my_list.insert_before(i)
         assert my_list.head.key == i

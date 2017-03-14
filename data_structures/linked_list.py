@@ -7,9 +7,9 @@ class Element:
 
 class LinkedList:
 
-    def __init__(self, head=None):
-        self.head = head
-        self.size = 1 if head else 0
+    def __init__(self, key=None):
+        self.head = Element(key)
+        self.size = 1 if key else 0
 
     def __len__(self):
         return self.size
