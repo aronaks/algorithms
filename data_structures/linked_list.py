@@ -5,6 +5,23 @@ class Element:
         self.next_element = None
 
 
+class LinkedListIter:
+
+    def __init__(self, element):
+        self.__element = element
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.__element:
+            res = self.__element.key
+            self.__element = self.__element.next_element
+            return res
+        else:
+            raise StopIteration
+
+
 class LinkedList:
 
     def __init__(self):
@@ -15,16 +32,7 @@ class LinkedList:
         return self.size
 
     def __iter__(self):
-        self.element = self.__head
-        return self
-
-    def __next__(self):
-        if self.element:
-            res = self.element.key
-            self.element = self.element.next_element
-            return res
-        else:
-            raise StopIteration
+        return LinkedListIter(self.__head)
 
     def search(self, k):
         x = self.__head
