@@ -8,22 +8,22 @@ class Element:
 class LinkedList:
 
     def __init__(self):
-        self.head = None
+        self.__head = None
         self.size = 0
 
     def __len__(self):
         return self.size
 
     def search(self, k):
-        x = self.head
+        x = self.__head
         while x and x.key != k:
             x = x.next_element
         return x
 
     def insert_before(self, x):
         new_element = Element(x)
-        new_element.next_element = self.head
-        self.head = new_element
+        new_element.next_element = self.__head
+        self.__head = new_element
         self.size += 1
 
     def delete(self, x):

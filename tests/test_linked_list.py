@@ -5,20 +5,8 @@ from data_structures.linked_list import LinkedList
 
 def test_create_empty_linked_list():
     my_list = LinkedList()
-    assert my_list.head is None
     assert not len(my_list)
 
-
-def test_insert_element_before():
-    my_list = LinkedList()
-    first_element = 0
-    my_list.insert_before(first_element)
-    assert my_list.head.key == first_element
-    assert my_list.head.next_element is None
-    for i in range(1, 5):
-        my_list.insert_before(i)
-        assert my_list.head.key == i
-        assert my_list.head.next_element.key == (i - 1)
 
 
 def test_search_for_element_present():
@@ -54,8 +42,6 @@ def test_delete_head():
     head = 4
     my_list.delete(head)
     assert my_list.search(head) is None
-    assert my_list.head.key == 3
-    assert my_list.head.next_element.key == 2
     assert len(my_list) == (list_length - 1)
 
 

@@ -9,7 +9,7 @@ class Node:
 class BinaryTree:
 
     def __init__(self):
-        self.root = None
+        self.__root = None
 
     def __search_impl(self, node, x):
         if not node:
@@ -22,32 +22,23 @@ class BinaryTree:
         else:
             return self.__search_impl(node.right_key, x)
 
-    @staticmethod
-    def __find_min(node):
-        if not node:
-            return None
-        minimum = node.key
-        while node.left_key:
-            minimum = node.left_key
-        return minimum
-
-    def __insert_impl(self, node, x, parent):
-
-        if not node:
-            self.root = Node(x)
-            self.root.parent_key = parent
-            return
-
-        if x < node.key:
-            self.__insert_impl(node.left_key, x, node)
+    def insert_key(self, z):
+        parent = None
+        current = self.__root
+        z = Node(z)
+        while current:
+            parent = current
+            if z.key < current.key:
+                current = current.left_key
+            else:
+                current = current.right_key
+        z.parent_key = parent
+        if not parent:
+            self.__root = z
+        elif z.key < parent.key:
+            parent.left_key = z
         else:
-            self.__insert_impl(node.right_key, x, node)
-
-    def insert_key(self, x):
-        self.__insert_impl(self.root, x, None)
+            parent.right_key = z
 
     def search_tree(self, x):
-        return self.__search_impl(self.root, x)
-
-    def find_minimum(self):
-        self.__find_min(self.root)
+        return self.__search_impl(self.__root, x)
