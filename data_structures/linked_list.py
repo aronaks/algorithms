@@ -14,6 +14,18 @@ class LinkedList:
     def __len__(self):
         return self.size
 
+    def __iter__(self):
+        self.element = self.__head
+        return self
+
+    def __next__(self):
+        if self.element:
+            res = self.element.key
+            self.element = self.element.next_element
+            return res
+        else:
+            raise StopIteration
+
     def search(self, k):
         x = self.__head
         while x and x.key != k:

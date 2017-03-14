@@ -8,7 +8,6 @@ def test_create_empty_linked_list():
     assert not len(my_list)
 
 
-
 def test_search_for_element_present():
     my_list = LinkedList()
     for i in range(5):
@@ -65,3 +64,14 @@ def test_delete_element_absent():
     with pytest.raises(ValueError):
         my_list.delete(5)
     assert len(my_list) == list_length
+
+
+def test_iterate_over_linked_list():
+    my_list = LinkedList()
+    for i in range(5):
+        my_list.insert_before(i)
+
+    exp_num = 4
+    for el in my_list:
+        assert el == exp_num
+        exp_num -= 1
