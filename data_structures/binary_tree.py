@@ -58,3 +58,12 @@ class BinaryTree:
         while max_item.right_key:
             max_item = max_item.right_key
         return max_item.key
+
+    def __traverse_impl(self, node):
+        if node:
+            self.__traverse_impl(node.left_key)
+            yield node.key
+            yield from self.__traverse_impl(node.right_key)
+
+    def traverse_tree(self):
+        return self.__traverse_impl(self.__root)

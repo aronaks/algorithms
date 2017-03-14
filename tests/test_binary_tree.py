@@ -23,3 +23,14 @@ def test_find_max():
         my_tree.insert_key(i)
     max_item = my_tree.find_max()
     assert 4 == max_item
+
+
+def test_traversing():
+    my_tree = BinaryTree()
+    for i in range(5):
+        my_tree.insert_key(i)
+    expected_res = 0
+    tree = my_tree.traverse_tree()
+    for n in tree:
+        assert expected_res == n
+        expected_res += 1
