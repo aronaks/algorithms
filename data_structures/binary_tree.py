@@ -42,3 +42,19 @@ class BinaryTree:
 
     def search_tree(self, x):
         return self.__search_impl(self.__root, x)
+
+    def find_min(self):
+        if not self.__root:
+            return None
+        min_item = self.__root
+        while min_item.left_key:
+            min_item = min_item.left_key
+        return min_item.key
+
+    def find_max(self):
+        if not self.__root:
+            return None
+        max_item = self.__root
+        while max_item.right_key:
+            max_item = max_item.right_key
+        return max_item.key
