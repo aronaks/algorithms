@@ -1,7 +1,14 @@
 from data_structures.binary_tree import BinaryTree
 
 
-def test_create_linked_list_with_root_only():
+def test_create_binary_tree_without_root():
+    my_tree = BinaryTree()
+    assert my_tree.root.key is None
+    assert my_tree.root.left_key is None
+    assert my_tree.root.right_key is None
+
+
+def test_create_binary_tree_with_root_only():
     root = 2
     my_tree = BinaryTree(root)
     assert my_tree.root.key == root

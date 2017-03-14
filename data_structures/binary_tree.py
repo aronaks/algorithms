@@ -22,5 +22,16 @@ class BinaryTree:
         else:
             return self.__search_impl(node.right_key, x)
 
+    def __find_min(self, node):
+        if not node:
+            return None
+        minimum = node.key
+        while node.left_key:
+            minimum = node.left_key
+        return minimum
+
     def search_tree(self, x):
         return self.__search_impl(self.root, x)
+
+    def find_minimum(self):
+        self.__find_min(self.root)
