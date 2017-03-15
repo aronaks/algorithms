@@ -73,5 +73,5 @@ def test_iterate_over_linked_list():
 
     exp_num = 4
     for el in my_list:
-        assert el == exp_num
-        exp_num -= 1
+        for el1 in my_list:
+            print('{} {}'.format(el,el1))
