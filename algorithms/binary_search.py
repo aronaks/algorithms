@@ -6,9 +6,9 @@ def binary_search(keys, keys_length, v):
         if keys[middle_index] == v:
             return middle_index
         elif keys[middle_index] > v:
-            rightmost_index -= 1
+            rightmost_index = middle_index - 1
         else:
-            leftmost_index += 1
+            leftmost_index = middle_index + 1
 
     return "Not found"
 
@@ -21,18 +21,6 @@ def recursive_binary_search(keys, leftmost_index, rightmost_index, v):
     if keys[middle_index] == v:
         return middle_index
     elif keys[middle_index] > v:
-        return recursive_binary_search(keys, leftmost_index, rightmost_index - 1, v)
+        return recursive_binary_search(keys, leftmost_index, middle_index - 1, v)
     else:
-        return recursive_binary_search(keys, leftmost_index + 1, rightmost_index, v)
-
-
-def binary_search_my_implementation(keys, left, right, v):
-    while left <= right:
-        mp = int((left + right) / 2)
-        if keys[mp] == v:
-            return mp
-        elif keys[mp] < v:
-            left = mp
-        else:
-            right = mp
-    return None
+        return recursive_binary_search(keys, middle_index + 1, rightmost_index, v)
