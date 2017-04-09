@@ -21,8 +21,8 @@ def merge_sort(keys, leftmost_index, rightmost_index):
     if rightmost_index - leftmost_index <= 1:
         return keys
     middle_index = int(round((leftmost_index + rightmost_index) / 2.0))
-    merge_sort_with_insertion_sort_for_small_values(keys, leftmost_index, middle_index)
-    merge_sort_with_insertion_sort_for_small_values(keys, middle_index, rightmost_index)
+    merge_sort(keys, leftmost_index, middle_index)
+    merge_sort(keys, middle_index, rightmost_index)
     merge(keys, leftmost_index, middle_index, rightmost_index)
 
 
@@ -30,7 +30,7 @@ def merge_sort_with_insertion_sort_for_small_values(keys, leftmost_index, rightm
     if rightmost_index - leftmost_index <= 1:
         return keys
     elif rightmost_index - leftmost_index < 44:
-        sort_in_non_decreasing_mode(keys, rightmost_index)
+        sort_in_non_decreasing_mode(keys)
     else:
         middle_index = int(round((leftmost_index + rightmost_index) / 2.0))
         merge_sort_with_insertion_sort_for_small_values(keys, leftmost_index, middle_index)

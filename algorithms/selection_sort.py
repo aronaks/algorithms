@@ -1,4 +1,5 @@
-def selection_sort(keys, keys_length):
+def selection_sort(keys):
+    keys_length = len(keys)
     for j in range(keys_length):
         key = keys[j]
         min_key_index = j

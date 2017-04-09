@@ -1,7 +1,11 @@
 from algorithms.merge_sort import merge_sort
 
 
-def find_repeated_elements(arr, arr_length):
+def find_repeated_elements(arr):
+    """
+    Find all numbers that repeat twice.
+    """
+    arr_length = len(arr)
     merge_sort(arr, 0, arr_length)
     repeated_elements = set()
     prev = arr[0]
