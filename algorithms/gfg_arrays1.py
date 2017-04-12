@@ -3,7 +3,7 @@ from algorithms.merge_sort import merge_sort
 
 def is_there_sum_of_two_elements(keys, v):
     """
-    Write a program that, given an array of n numbers and another number x, 
+    Write a function that, given an array of n numbers and another number x, 
     determines whether or not there exist two elements in the array whose sum is 
     exactly x. 
     """
