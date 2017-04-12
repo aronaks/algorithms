@@ -1,4 +1,5 @@
-def count_combinations(keys, keys_length):
+def count_combinations(keys):
+    keys_length = len(keys)
     count = 1
 
     if keys_length == 1:

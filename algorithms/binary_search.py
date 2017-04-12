@@ -1,4 +1,5 @@
-def binary_search(keys, keys_length, v):
+def binary_search(keys, v):
+    keys_length = len(keys)
     leftmost_index = 1
     rightmost_index = keys_length - 1
     while leftmost_index <= rightmost_index:

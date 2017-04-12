@@ -71,7 +71,6 @@ def test_iterate_over_linked_list():
     for i in range(5):
         my_list.insert_before(i)
 
-    exp_num = 4
     for el in my_list:
         for el1 in my_list:
             print('{} {}'.format(el,el1))
