@@ -1,3 +1,6 @@
+# O(n^2)
+
+
 def partition(keys, p, r):
     q = p
     for u in range(p, r):

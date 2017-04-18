@@ -1,3 +1,6 @@
+# O(n^2)
+
+
 def sort_in_non_decreasing_mode(keys):
     keys_length = len(keys)
     for j in range(1, keys_length):

@@ -3,7 +3,7 @@ def count(keys, leftmost_index, middle_index, rightmost_index):
     c = keys[middle_index:rightmost_index]
     i = j = inversions_num = 0
     for k in range(leftmost_index, rightmost_index):
-        if i >= middle_index:
+        if i >= len(b):
             keys[k] = c[j]
             j += 1
         elif j >= len(c):

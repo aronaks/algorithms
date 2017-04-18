@@ -1,3 +1,6 @@
+# O(n^2)
+
+
 def selection_sort(keys):
     keys_length = len(keys)
     for j in range(keys_length):

@@ -1,3 +1,6 @@
+# O(n^2)
+
+
 def bubble_sort(keys):
     keys_length = len(keys)
     for i in range(0, keys_length):

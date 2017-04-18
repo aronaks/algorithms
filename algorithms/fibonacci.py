@@ -1,3 +1,6 @@
+# O(2^n)
+
+
 def fibonacci_numbers(n):
     if n == 0:
         return n
