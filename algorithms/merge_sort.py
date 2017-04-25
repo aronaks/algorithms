@@ -4,12 +4,15 @@ from algorithms.insertion_sort import sort_in_non_decreasing_mode
 def merge(keys, leftmost_index, middle_index, rightmost_index):
     b = keys[leftmost_index:middle_index]
     c = keys[middle_index:rightmost_index]
-
-    b.append(float("inf"))
-    c.append(float("inf"))
     i = j = 0
     for k in range(leftmost_index, rightmost_index):
-        if b[i] <= c[j]:
+        if i >= len(b):
+            keys[k] = c[j]
+            j += 1
+        elif j >= len(c):
+            keys[k] = b[i]
+            i += 1
+        elif b[i] <= c[j]:
             keys[k] = b[i]
             i += 1
         else:
