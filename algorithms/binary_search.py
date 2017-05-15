@@ -1,3 +1,6 @@
+# O(log n)
+
+
 def binary_search(keys, v):
     keys_length = len(keys)
     leftmost_index = 1

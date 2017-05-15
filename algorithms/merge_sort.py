@@ -1,3 +1,6 @@
+# O(n * log n)
+
+
 from algorithms.insertion_sort import sort_in_non_decreasing_mode
 
 

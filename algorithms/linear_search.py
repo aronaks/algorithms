@@ -1,3 +1,6 @@
+# O(n)
+
+
 def find_v(keys, v):
     keys_length = len(keys)
     for i in range(keys_length):
