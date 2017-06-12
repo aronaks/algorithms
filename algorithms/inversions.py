@@ -15,7 +15,7 @@ def count(keys, leftmost_index, middle_index, rightmost_index):
         else:
             keys[k] = c[j]
             j += 1
-            inversions_num += middle_index - leftmost_index
+            inversions_num += len(b) - i
     return inversions_num
 
 
@@ -31,6 +31,5 @@ def get_inversions_num(keys, leftmost_index, rightmost_index):
     middle_index = int(round((leftmost_index + rightmost_index) / 2.0))
     inversion_counter += get_inversions_num(keys, leftmost_index, middle_index)
     inversion_counter += get_inversions_num(keys, middle_index, rightmost_index)
-    inversion_counter += count(keys, leftmost_index, middle_index,
-                               rightmost_index)
+    inversion_counter += count(keys, leftmost_index, middle_index, rightmost_index)
     return inversion_counter
