@@ -2,7 +2,7 @@
 
 
 def multiply_matrices_brute_force(a, b):
-    if len(a) != len(b):
+    if len(a) != len(b[0]):
         return 0
     n = len(a)
     c = [[None for _ in range(n)] for _ in range(n)]
