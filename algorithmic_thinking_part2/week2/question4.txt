@@ -1,0 +1,10 @@
+Hierarchical clustering's the most heavy operation is fast_closest_pair. Its running time is O(n * log^2n).
+Since fast_closest_pair is located in the 'while' loop in Hierarchical clustering which condition is (n - k) (where k is a number of output clusters),
+the less desired output clusters we have (the bigger fraction of the number of input clusters), the more times fast_closest_pair will be executed.
+So Hierarchical clustering in this question will have the running time O(n^2 * log^2n).
+
+k-means clustering has running time O(q * k * n), but we have a small fixed number of iterations and smaller number of the output clusters which means
+that k-means clustering has running time can be reduced to O(k * n), so it is basically O(n^2) or even less.
+
+We can conclude that k-means clustering is much faster than hierarchical clustering in this particular question.
+
