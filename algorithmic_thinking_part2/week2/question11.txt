@@ -1,0 +1,2 @@
+the distortion always changes with 290 and 896 counties, so none of the methods is superior.
+Only for 111 counties we can observe that hierarchical clustering is superior over k-means one.

@@ -1,0 +1,2 @@
+kmeans produced a clustering with a much higher distortion than hierarchical clustering.
+This happened because k-means clustering generated its initial clustering very poor in this case.

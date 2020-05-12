@@ -13,6 +13,7 @@ where cluster_list is a 2D list of clusters in the plane
 
 import math
 import random
+
 import alg_cluster
 
 
@@ -211,3 +212,10 @@ def gen_random_clusters(num_clusters):
     clusters_list = [alg_cluster.Cluster(set(), random.uniform(1, -1), random.uniform(1, -1), 0, 0)
                      for _ in range(num_clusters)]
     return clusters_list
+
+
+def compute_distortion(cluster_list, data_table):
+    """
+    Takes a list of clusters and uses cluster_error to compute its distortion
+    """
+    return sum([cluster.cluster_error(data_table) for cluster in cluster_list])

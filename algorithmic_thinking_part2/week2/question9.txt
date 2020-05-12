@@ -1,0 +1,2 @@
+hierarchical clustering requires less human supervision to produce clusterings with relatively low distortion.
+kmeans clustering might chose initial clusters very poorly, so it requires more human supervision.

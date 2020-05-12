@@ -11,7 +11,8 @@ to use the matplotlib version of this code
 DESKTOP = True
 
 import math
-import urllib2
+import urllib
+
 import alg_cluster
 import timer2
 
@@ -44,10 +45,10 @@ def load_data_table(data_url):
     Import a table of county-based cancer risk data
     from a csv format file
     """
-    data_file = urllib2.urlopen(data_url)
+    data_file = urllib.urlopen(data_url)
     data = data_file.read()
     data_lines = data.split('\n')
-    print "Loaded", len(data_lines), "data points"
+    print("Loaded", len(data_lines), "data points")
     data_tokens = [line.split(',') for line in data_lines]
     return [[tokens[0], float(tokens[1]), float(tokens[2]), int(tokens[3]), float(tokens[4])]
             for tokens in data_tokens]
@@ -93,7 +94,7 @@ def run_example():
 
     Set DESKTOP = True/False to use either matplotlib or simplegui
     """
-    data_table = load_data_table(DATA_111_URL)
+    data_table = load_data_table(DATA_896_URL)
 
     singleton_list = []
     for line in data_table:
@@ -102,16 +103,39 @@ def run_example():
     # cluster_list = sequential_clustering(singleton_list, 15)
     # print "Displaying", len(cluster_list), "sequential clusters"
 
+    # question 5
     # cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, 9)
     # print "Displaying", len(cluster_list), "hierarchical clusters"
 
-    cluster_list = alg_project3_solution.kmeans_clustering(singleton_list, 9, 5)
-    print "Displaying", len(cluster_list), "k-means clusters"
+    # question 6
+    # cluster_list = alg_project3_solution.kmeans_clustering(singleton_list, 9, 5)
+    # print "Displaying", len(cluster_list), "k-means clusters"
 
+    # question 7
+    # cluster_list = alg_project3_solution.kmeans_clustering(singleton_list, 9, 5)
+    # kmeans_result = alg_project3_solution.compute_distortion(cluster_list, data_table)
+    # print("Displaying", kmeans_result, "kmeans_result")
+    # cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, 9)
+    # hierarchical_result = alg_project3_solution.compute_distortion(cluster_list, data_table)
+    # print("Displaying", hierarchical_result, "hierarchical_result")
+
+    # question 10
+    kmeans_res = []
+    for clusters_number in range(6, 21):
+        cluster_list = alg_project3_solution.kmeans_clustering(singleton_list, clusters_number, 5)
+        kmeans_res.append([clusters_number, alg_project3_solution.compute_distortion(cluster_list, data_table)])
+
+    hier_res = []
+    for clusters_number in range(20, 5, -1):
+        cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, clusters_number)
+        hier_res.append([clusters_number, alg_project3_solution.compute_distortion(cluster_list, data_table)])
+
+    hier_res.reverse()
     # draw the clusters using matplotlib or simplegui
     if DESKTOP:
         # alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, False)
-        alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, True) #add cluster centers
+        # alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, True)  # add cluster centers
+        create_separate_plots(kmeans_res, hier_res)
     else:
         alg_clusters_simplegui.PlotClusters(data_table, cluster_list)  # use toggle in GUI to add cluster centers
 
@@ -133,6 +157,18 @@ def compute_running_times():
     alg_clusters_matplotlib.plt.plot(clusters_number, running_times_computed2, label='hierarchical')
     alg_clusters_matplotlib.plt.xlabel('the number of initial clusters')
     alg_clusters_matplotlib.plt.ylabel('the running time of the function (s)')
+    alg_clusters_matplotlib.plt.legend()
+    alg_clusters_matplotlib.plt.show()
+
+
+def create_separate_plots(kmeans_results, hierarchical_results):
+    alg_clusters_matplotlib.plt.plot([r[0] for r in hierarchical_results], [r[1] for r in hierarchical_results],
+                                     label='hierarchical')
+    alg_clusters_matplotlib.plt.plot([r[0] for r in kmeans_results], [r[1] for r in kmeans_results],
+                                     label='kmeans')
+    alg_clusters_matplotlib.plt.title('The distortion computed for 896 points')
+    alg_clusters_matplotlib.plt.xlabel('the number of output clusters')
+    alg_clusters_matplotlib.plt.ylabel('the distortion associated with each output clustering')
     alg_clusters_matplotlib.plt.legend()
     alg_clusters_matplotlib.plt.show()
 

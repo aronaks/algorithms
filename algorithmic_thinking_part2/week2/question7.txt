@@ -1,0 +1,2 @@
+271254226924.20047 for kmeans
+175163886915.8305 for hierarchical
